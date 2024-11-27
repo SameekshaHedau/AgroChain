@@ -1,0 +1,203 @@
+{% extends 'base.html' %} 
+
+{% comment %} {% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Consumer Dashboard</h1>
+
+    <h2>Your Crops</h2>
+    <div class="row">
+        {% if user_crops %}
+            {% for crop in user_crops %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ crop.name }}</h5>
+                        <p class="card-text">
+                            <strong>Quantity:</strong> {{ crop.quantity }} kg <br>
+                            <strong>Price:</strong> {{ crop.specific_user_price }} <br>
+                            <strong>Status:</strong> {{ crop.status }}
+                        </p>
+                        <a href="{% url 'buy_crops' crop.id %}" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col">
+                <div class="alert alert-warning text-center" role="alert">
+                    No crops listed yet.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <h2 class="mt-5">Publicly Available Crops</h2>
+    <div class="row">
+        {% if public_crops %}
+            {% for crop in public_crops %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ crop.name }}</h5>
+                        <p class="card-text">
+                            <strong>Quantity:</strong> {{ crop.quantity }} kg <br>
+                            <strong>Price:</strong> {{ crop.price }} <br>
+                            <strong>Status:</strong> {{ crop.status }}
+                        </p>
+                        <a href="{% url 'buy_crops' crop.id %}" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col">
+                <div class="alert alert-warning text-center" role="alert">
+                    No public crops available.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <h2 class="mt-5">Crops Not Allowed for Purchase</h2>
+    <div class="row">
+        {% for crop in not_allowed_crops %}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-light">
+                <div class="card-body">
+                    <h5 class="card-title">{{ crop.crop.name }}</h5>
+                    <p class="card-text">
+                        <strong>Quantity:</strong> {{ crop.crop.quantity }} kg <br>
+                        <strong>Price:</strong> {{ crop.crop.price }} <br>
+                        <strong>Status:</strong> {{ crop.crop.status }}
+                    </p>
+                    <a href="{% url 'buy_crops' crop.crop.id %}" class="btn btn-primary">Buy</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col">
+            <div class="alert alert-warning text-center" role="alert">
+                No crops found where you are not allowed.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% endcomment %}
+
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center" style="color: #4f713a; font-size: 40px; font-weight: bold; text-align: center; margin-top: 20px;">Consumer Dashboard</h1>
+
+    <h2>Your Crops</h2>
+    <div class="row">
+        {% if user_crops %}
+            {% for crop in user_crops %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title custom-card-title">{{ crop.name }}</h5>
+                        <p class="card-text">
+                            <strong>Quantity:</strong> {{ crop.quantity }} kg <br>
+                            <strong>Price:</strong> ₹{{ crop.specific_user_price }} <br>
+                            <strong>Status:</strong> 
+                            {% if crop.status|lower == "sold" %}
+                                <span style="color: red; font-weight: bold;">Sold</span>
+                            {% else %}
+                                <span style="color: green; font-weight: bold;">{{ crop.status|default:"Available" }}</span>
+                            {% endif %}
+                        </p>
+                        {% if crop.status|lower != "sold" %}
+                            <a href="{% url 'buy_crops' crop.id %}" class="btn btn-success">Buy</a>
+                        {% else %}
+                            <button class="btn btn-secondary" style="color: white;" disabled>Sold Out</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col">
+                <div class="alert alert-warning text-center" role="alert">
+                    No crops listed yet.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <h2 class="mt-5">Publicly Available Crops</h2>
+    <div class="row">
+        {% if public_crops %}
+            {% for crop in public_crops %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title custom-card-title">{{ crop.name }}</h5>
+                        <p class="card-text">
+                            <strong>Quantity:</strong> {{ crop.quantity }} kg <br>
+                            <strong>Price:</strong> ₹{{ crop.price }} <br>
+                            <strong>Status:</strong> 
+                            {% if crop.status|lower == "sold" %}
+                                <span style="color: red; font-weight: bold;">Sold</span>
+                            {% else %}
+                                <span style="color: green; font-weight: bold;">{{ crop.status|default:"Available" }}</span>
+                            {% endif %}
+                        </p>
+                        {% if crop.status|lower != "sold" %}
+                            <a href="{% url 'buy_crops' crop.id %}" class="btn btn-success">Buy</a>
+                        {% else %}
+                            <button class="btn btn-secondary" style="color: white;" disabled>Sold Out</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col">
+                <div class="alert alert-warning text-center" role="alert">
+                    No public crops available.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <h2 class="mt-5">Crops Not Allowed for Purchase</h2>
+    <div class="row">
+        {% for crop in not_allowed_crops %}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-light">
+                <div class="card-body">
+                    <h5 class="card-title custom-card-title">{{ crop.name }}</h5>
+                    <p class="card-text">
+                        <strong>Quantity:</strong> {{ crop.quantity }} kg <br>
+                        <strong>Price:</strong> ₹{{ crop.price }} <br>
+                        <strong>Status:</strong> 
+                        {% if crop.crop.status|lower == "sold" %}
+                                <span style="color: red; font-weight: bold;">Sold</span>
+                            {% else %}
+                                <span style="color: green; font-weight: bold;">{{ crop.status|default:"Available" }}</span>
+                            {% endif %}
+                    </p>
+                    {% if crop.status|lower != "sold" %}
+                        <button class="btn btn-secondary" style="color: white;" disabled>Buy</a>
+                    {% else %}
+                        <button class="btn btn-secondary" style="color: white;" disabled>Sold Out</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col">
+            <div class="alert alert-warning text-center" role="alert">
+                No crops found where you are not allowed.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+

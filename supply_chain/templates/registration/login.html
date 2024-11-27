@@ -1,0 +1,146 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class="auth-container container-fluid login-colour">
+        
+        <div class="auth-sidebar">
+           
+            <div class="auth-sidebar__content">
+                <h3>Welcome to</h3>
+                <h1>AgroChain</h1>
+                <h4>Welcome to AgroChain, we believe in empowering farmers and ensuring food safety through innovative blockchain solutions. Our team of experts is dedicated to transforming the agriculture industry.</h4>
+                <h3>Choose your Role to get started !!</h3> 
+            </div>
+        </div>
+
+        
+
+        
+        <div class="auth-box-container">
+            <div class="card w-75 login-colour">
+                <div class="card-header text-center">
+                    <h5><b>Login to Your Account</b></h5>
+                </div>
+                <div class="card-body">
+                   
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>  -->
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="auth-container container-fluid login-colour">
+        <div class="auth-sidebar">
+            <div class="auth-sidebar__content">
+                <h3>Welcome to</h3>
+                <h1>AgroChain</h1>
+                <h4>Empowering farmers through innovative blockchain solutions.</h4>
+                <h3>Choose your Role to get started !!</h3> 
+            </div>
+        </div>
+
+        <div class="auth-box-container d-flex justify-content-center align-items-center">
+            <div class="card w-75 login-card">
+                <div class="card-header text-center">
+                    <h5><b>Login to Your Account</b></h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="auth-container container-fluid">
+        <div class="auth-sidebar">
+            <div class="auth-sidebar__content">
+                <h3>Welcome to,</h3>
+                <h1>AgroChain</h1>
+                <h4>Empowering farmers through innovative blockchain solutions.</h4>
+                <h5><i>Create your account now !!</i></h5> 
+            </div>
+        </div>
+
+        <div class="auth-box-container d-flex justify-content-center align-items-center">
+            <div class="card w-75 login-card">
+                <div class="card-header text-center">
+                    <h5><b>Login to Your Account</b></h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+

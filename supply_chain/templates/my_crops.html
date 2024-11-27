@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% comment %} {% block content %}
+  <h2>Your Listed Crops</h2>
+  {% if crops %}
+    <ul>
+      {% for crop in crops %}
+        <li>
+          <h3>{{ crop.name }}</h3>
+          <p>Price: {{ crop.price }}</p>
+          <p>Quantity: {{ crop.quantity }}</p>
+          <p>Status: {{ crop.current_stage }}</p>
+          <a href="{% url 'edit_crop_price' crop.id %}">Edit Price</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You have not listed any crops yet.</p>
+  {% endif %}
+{% endblock %} {% endcomment %}
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4 text-center" style="color: #4f713a; font-weight: bold;">Your Listed Crops</h2>
+
+    {% if crops %}
+        <div class="row">
+            {% for crop in crops %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h3 class="card-title text" style=" color:#719545; font-weight: bold;">{{ crop.name }}</h3>
+                        <p class="card-text">
+                            <strong>Price:</strong> ₹{{ crop.price }} <br>
+                            <strong>Quantity:</strong> {{ crop.quantity }} kg <br>
+                            <strong>Status:</strong> 
+                            <span 
+                                class="{% if crop.current_stage == 'Sold' %}text-danger{% else %}text-success{% endif %}" 
+                                style="font-weight: bold;">
+                                {{ crop.current_stage|default:"Available" }}
+                            </span>
+                        </p>
+                        <a href="{% url 'edit_crop_price' crop.id %}" class="btn btn-outline-secondary w-100">Edit Price</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            You have not listed any crops yet.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

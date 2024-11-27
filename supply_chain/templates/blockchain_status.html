@@ -1,0 +1,25 @@
+<!-- Example: blockchain_status.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h1>Blockchain Status</h1>
+<table>
+    <tr>
+        <th>Block Index</th>
+        <th>Transactions</th>
+        <th>Previous Hash</th>
+    </tr>
+    {% for block in blockchain.chain %}
+    <tr>
+        <td>{{ block.index }}</td>
+        <td>
+            <ul>
+                {% for transaction in block.transactions %}
+                <li>{{ transaction.sender }} sent {{ transaction.amount }} of {{ transaction.crop_id }} to {{ transaction.recipient }}</li>
+                {% endfor %}
+            </ul>
+        </td>
+        <td>{{ block.previous_hash }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

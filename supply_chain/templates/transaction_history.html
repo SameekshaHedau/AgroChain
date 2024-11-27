@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% comment %} {% block content %}
+    <h1>Your Transaction History</h1>
+    <ul>
+        {% for transaction in transactions %}
+            <li>{{ transaction.crop.name }} sold by {{ transaction.seller.username }} to {{ transaction.buyer.username }} - Quantity: {{ transaction.quantity }} - Date: {{ transaction.timestamp }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card shadow-sm p-4">
+    <h1 class="text-center mb-4" style="color: #719545; font-weight: bold;">Your Transaction History</h1>
+
+    {% if transactions %}
+      <ul class="list-group">
+        {% for transaction in transactions %}
+          <li class="list-group-item mb-3">
+            <h5 class="text"style="color: #719545;">{{ transaction.crop.name }}</h5>
+            <p><strong>Seller:</strong> {{ transaction.seller.username }}</p>
+            <p><strong>Buyer:</strong> {{ transaction.buyer.username }}</p>
+            <p><strong>Quantity:</strong> {{ transaction.quantity }} kg</p>
+            <p><strong>Date:</strong> {{ transaction.timestamp }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>You have no transaction history yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+

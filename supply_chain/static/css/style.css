@@ -1,0 +1,245 @@
+/*body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(238, 249, 213, 0.9);
+}*/
+.custom-navbar {
+    background-color: #719545; 
+    color: rgb(255, 255, 255); 
+}
+
+.login-colour{
+    background-color: rgb(215, 220, 195);
+    color: rgb(44, 42, 42);
+}
+
+.header {
+    background-color: #b8db8e;
+}
+
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #719545;
+}
+
+.btn-success{
+    background-color: #719545;
+    border: none;
+}
+
+.btn-success:hover{
+    background-color: #4f713a;
+}
+
+.footer {
+    background-color: #4f713a;
+    padding: 20px 0;
+}
+
+.nav-link {
+    margin: 0 10px;
+}
+
+.profile-picture {
+    margin-right: 5px;
+}
+
+.logout-button {
+    color: red; 
+    font-weight: bold;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background-color: #f8f9fa; Light background color */
+    
+        
+    background: linear-gradient(to right, #729152, #cbf784); /* Gradient colors */
+    
+    /*position: relative;*/
+    height: 100vh; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
+}
+
+h1 {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.auth-container {
+    height: 100vh;
+    display: flex;
+    /*align-items: center;*/
+}
+
+.auth-sidebar {
+    background-color: #719545; /* Chic color */
+    color: white;
+    padding: 2rem;
+    width: 40%;
+    display: flex;
+    /*text-align: center;*/
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+.auth-sidebar h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+}
+
+.auth-sidebar h4 {
+    font-weight: 300;
+    margin: 1rem 0;
+}
+
+.auth-box-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Full width */
+    max-width: 400px; /* Max width for the card */
+}
+
+.card-header {
+    background-color: #f7f7f7;
+}
+
+.btn-primary {
+    background-color: #719545; /* Primary button color */
+    border: none; /* Remove border */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #4f713a; /* Darker shade on hover */
+}
+
+.card-footer a {
+    color: #4f713a; /* Link color */
+}
+
+.card-footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.custom-title {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #4CAF50; /* A shade of green */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-card-title {
+    font-family: 'Verdana', sans-serif;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.3rem;
+}
+
+/* Custom styling for the Sold Out button */
+.btn-sold-out {
+    background-color: #ff4d4d; /* Red color for sold out */
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: not-allowed;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.btn-sold-out:hover {
+    background-color: #ff3333; /* Darker shade on hover */
+    color: white;
+}
+
+/* Custom styling for the collapsible blocks */
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #343a40;
+    text-transform: uppercase;
+}
+
+button.btn {
+    background-color: #f7f7f7;
+    border: 2px solid #719545;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button.btn:hover {
+    background-color: #e7f1ff;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.collapse {
+    margin-top: 10px;
+}
+
+.card {
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body p {
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+

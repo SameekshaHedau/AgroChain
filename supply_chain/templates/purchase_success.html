@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% comment %} {% block content %}
+<div class="container">
+    <h1>Purchase Successful!</h1>
+    <p>Thank you for your purchase.</p>
+    <h2>Transaction Details</h2>
+    <ul>
+        <li><strong>Crop Name:</strong> {{ crop.name }}</li>
+        <li><strong>Quantity Bought:</strong> {{ quantity }}</li>
+        <li><strong>Total Cost:</strong> ₹{{ total_cost }}</li>
+        <li><strong>Transaction ID:</strong> {{ transaction_id }}</li>
+        <li><strong>Transaction Hash:</strong> {{ transaction_hash}}</li>
+        <li><strong>Remaining Balance:</strong> ₹{{ remaining_balance }}</li>
+    </ul>
+    <a href="{% url 'dashboard' %}" class="btn btn-primary">Go to Dashboard</a>
+    <a href="{% url 'my_crops' %}" class="btn btn-secondary">View My Crops</a>
+</div>
+{% endblock %} {% endcomment %}
+{% block content %}
+<div class="container my-5">
+    <div class="card shadow-lg p-4">
+        <div class="card-body">
+            <h1 class="text-success text-center mb-4" style="font-weight: bold;">Purchase Successful!</h1>
+            <p class="text-center fs-5">Thank you for your purchase. Below are the transaction details:</p>
+
+            <div class="transaction-details mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>Crop Name</th>
+                                        <td>{{ crop.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Quantity Bought</th>
+                                        <td>{{ quantity }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total Cost</th>
+                                        <td>₹{{ total_cost }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <td>{{ transaction_id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Transaction Hash</th>
+                                        <td>{{ transaction_hash }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Remaining Balance</th>
+                                        <td>₹{{ remaining_balance }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg mx-2" style="width: 200px;">Go to Dashboard</a>
+                <a href="{% url 'my_crops' %}" class="btn btn-secondary btn-lg mx-2" style="width: 200px;">View My Crops</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

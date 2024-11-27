@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% comment %} {% block content %}
+<h1>Purchased Crops</h1>
+<ul>
+    {% for crop in purchased_crops %}
+        <li>
+            Crop Name: {{ crop.crop.name }}<br>
+            Quantity: {{ crop.quantity }}<br>
+            Price: {{ crop.price }}<br>
+            Seller: {{ crop.seller.username }}<br>
+            Buyer:{{crop.buyer.username}}<br>
+            Transaction Hash: {{ crop.transaction_hash }}<br>
+        </li>
+        <hr>
+    {% empty %}
+        <p>No crops purchased yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4" style="color: #4f713a; font-weight: bold;">Purchased Crops</h1>
+
+    {% if purchased_crops %}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for crop in purchased_crops %}
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text" style="color: #719545;">{{ crop.crop.name }}</h5>
+                            <p class="card-text">
+                                <strong>Quantity:</strong> {{ crop.quantity }} kg<br>
+                                <strong>Price:</strong> ₹{{ crop.price }}<br>
+                                <strong>Seller:</strong> {{ crop.seller.username }}<br>
+                                <strong>Buyer:</strong> {{ crop.buyer.username }}<br>
+                                <strong>Transaction Hash:</strong> 
+                                <span class="text-break">{{ crop.transaction_hash }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            No crops purchased yet.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

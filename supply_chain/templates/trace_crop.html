@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% comment %} {% block content %}
+<h1>Trace Crops</h1>
+<ul>
+    {% for item in crops_with_traceability %}
+        <li>
+            <h2>Crop Name: {{ item.purchased_crop.crop.name }}</h2>
+            <p>Quantity: {{ item.purchased_crop.quantity }}</p>
+            <p>Price: {{ item.purchased_crop.price }}</p>
+            <p>Seller: {{ item.purchased_crop.seller.username }}</p>
+            <p>Transaction Hash: {{ item.purchased_crop.transaction_hash }}</p>
+            
+            <!-- Traceability Information -->
+            <h3>Traceability</h3>
+            {% if item.traceability_info %}
+                <p>Previous Owner: {{ item.traceability_info.previous_hash }}</p>
+            {% else %}
+                <p>Traceability information not available.</p>
+            {% endif %}
+
+            <!-- Transaction History -->
+            <h3>Transaction History</h3>
+            <ul>
+                {% for transaction in item.transactions %}
+                    <li>
+                        Buyer: {{ transaction.buyer.username }}<br>
+                        Seller: {{ transaction.seller.username }}<br>
+                        Quantity: {{ transaction.quantity }}<br>
+                        Price: {{ transaction.price }}<br>
+                        Timestamp: {{ transaction.timestamp }}<br>
+                    </li>
+                    <hr>
+                {% empty %}
+                    <p>No transaction history available for this crop.</p>
+                {% endfor %}
+            </ul>
+        </li>
+        <hr>
+    {% empty %}
+        <p>No crops purchased yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card shadow-sm p-4">
+    <h1 class="text-center mb-4" style="color: #4f713a; font-weight: bold;">Trace Crops</h1>
+
+    {% if crops_with_traceability %}
+      <ul class="list-group">
+        {% for item in crops_with_traceability %}
+          <li class="list-group-item mb-4">
+            <h2 class="text"style="color: #729152; font-weight: bold;">{{ item.purchased_crop.crop.name }}</h2>
+            <p><strong>Quantity:</strong> {{ item.purchased_crop.quantity }} kg</p>
+            <p><strong>Price:</strong> ₹{{ item.purchased_crop.price }}</p>
+            <p><strong>Seller:</strong> {{ item.purchased_crop.seller.username }}</p>
+            <p><strong>Transaction Hash:</strong> {{ item.purchased_crop.transaction_hash }}</p>
+
+            <!-- Traceability Information -->
+            <h3 class="mt-4">Traceability</h3>
+            {% if item.traceability_info %}
+              <p><strong>Previous Owner:</strong> {{ item.traceability_info.previous_hash }}</p>
+            {% else %}
+              <p>Traceability information not available.</p>
+            {% endif %}
+
+            <!-- Transaction History -->
+            <h3 class="mt-4">Transaction History</h3>
+            <ul class="list-group">
+              {% for transaction in item.transactions %}
+                <li class="list-group-item">
+                  <p><strong>Buyer:</strong> {{ transaction.buyer.username }}</p>
+                  <p><strong>Seller:</strong> {{ transaction.seller.username }}</p>
+                  <p><strong>Quantity:</strong> {{ transaction.quantity }} kg</p>
+                  <p><strong>Price:</strong> ₹{{ transaction.price }}</p>
+                  <p><strong>Timestamp:</strong> {{ transaction.timestamp }}</p>
+                </li>
+                <hr>
+              {% empty %}
+                <p>No transaction history available for this crop.</p>
+              {% endfor %}
+            </ul>
+          </li>
+          <hr>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No crops purchased yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
